@@ -46,7 +46,5 @@ func Authorization(socialMediaService service.SocialMediaService) gin.HandlerFun
 
 			return
 		}
-
-		ctx.Next()
 	}
 }

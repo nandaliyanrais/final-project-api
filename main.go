@@ -25,7 +25,7 @@ import (
 // @securityDefinitions.apikey Bearer
 // @in header
 // @name Authorization
-// @description Authorization header using the Bearer scheme
+// @description Authorization Bearer token
 func main() {
 
 	router := gin.Default()

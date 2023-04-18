@@ -38,13 +38,13 @@ func NewCommentController(commentService service.CommentService, photoService ph
 // @Summary Create a comment
 // @Description Create and store a comment with authentication user
 // @Tags comments
+// @Security Bearer
 // @Accept json
 // @Produce json
 // @Param json body request.CommentCreateRequest true "Add Comment"
 // @Success 201 {object} response.SuccessResponse
 // @Failure 400 {object} response.ErrorResponse
 // @Failure 401 {object} response.ErrorResponse
-// @Security Bearer
 // @Router /comments [post]
 func (commentController *CommentControllerService) Create(c *gin.Context) {
 
@@ -146,12 +146,12 @@ func (commentController *CommentControllerService) Create(c *gin.Context) {
 // @Summary Get all comments
 // @Description Get all comments with authentication user
 // @Tags comments
+// @Security Bearer
 // @Accept json
 // @Produce json
 // @Success 200 {object} response.SuccessResponse
 // @Failure 400 {object} response.ErrorResponse
 // @Failure 401 {object} response.ErrorResponse
-// @Security Bearer
 // @Router /comments [get]
 func (commentController *CommentControllerService) GetAll(c *gin.Context) {
 
@@ -194,13 +194,13 @@ func (commentController *CommentControllerService) GetAll(c *gin.Context) {
 // @Summary Get one comment
 // @Description Get one comment by id with authentication user
 // @Tags comments
+// @Security Bearer
 // @Accept json
 // @Produce json
 // @Param commentId path int true "Comment ID"
 // @Success 200 {object} response.SuccessResponse
 // @Failure 400 {object} response.ErrorResponse
 // @Failure 401 {object} response.ErrorResponse
-// @Security Bearer
 // @Router /comments/{commentId} [get]
 func (commentController *CommentControllerService) GetOne(c *gin.Context) {
 	commentID, err := strconv.Atoi(c.Param("commentId"))
@@ -249,6 +249,7 @@ func (commentController *CommentControllerService) GetOne(c *gin.Context) {
 // @Summary Update a comment
 // @Description Update a comment by id with authentication user
 // @Tags comments
+// @Security Bearer
 // @Accept json
 // @Produce json
 // @Param commentId path int true "Comment ID"
@@ -257,7 +258,6 @@ func (commentController *CommentControllerService) GetOne(c *gin.Context) {
 // @Failure 400 {object} response.ErrorResponse
 // @Failure 401 {object} response.ErrorResponse
 // @Failure 404 {object} response.ErrorResponse
-// @Security Bearer
 // @Router /comments/{commentId} [put]
 func (commentController *CommentControllerService) Update(c *gin.Context) {
 	var (
@@ -337,6 +337,7 @@ func (commentController *CommentControllerService) Update(c *gin.Context) {
 // @Summary Delete a comment
 // @Description Delete a comment by id with authentication user
 // @Tags comments
+// @Security Bearer
 // @Accept json
 // @Produce json
 // @Param commentId path int true "Comment ID"
@@ -344,7 +345,6 @@ func (commentController *CommentControllerService) Update(c *gin.Context) {
 // @Failure 400 {object} response.ErrorResponse
 // @Failure 401 {object} response.ErrorResponse
 // @Failure 404 {object} response.ErrorResponse
-// @Security Bearer
 // @Router /comments/{commentId} [delete]
 func (commentController *CommentControllerService) Delete(c *gin.Context) {
 

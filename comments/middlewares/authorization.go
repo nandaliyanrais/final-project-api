@@ -46,7 +46,5 @@ func Authorization(commentService service.CommentService) gin.HandlerFunc {
 
 			return
 		}
-
-		ctx.Next()
 	}
 }
